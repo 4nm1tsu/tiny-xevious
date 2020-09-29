@@ -1,27 +1,31 @@
 #include <Arduino.h>
 
-#include <Arduboy.h>
-#include "assets.h"
+#include <Arduboy2.h>
+#include <SPI.h>
+#include "include/assets.h"
+#include "objects.h"
 
-Arduboy ab;
+Arduboy2 ab;
+Solvalou *solvalou = new Solvalou(&ab);
 
 void setup()
 {
-    ab.beginNoLogo();
-    ab.setFrameRate(30);
+    ab.begin();
+    ab.setFrameRate(60);
     ab.clear();
 
-    ab.drawBitmap(0, 0, solvalou, 7, 7, 1);
+    //ab.drawBitmap(0, 0, solvalouImg, 7, 7, 1);
+    solvalou->draw();
 
     ab.display();
 }
 
 void loop()
 {
+    ab.clear();
     if(!(ab.nextFrame()))
-    {
         return;
-    }
-
-    // EMPTY
+    solvalou->move();
+    solvalou->draw();
+    ab.display();
 }
