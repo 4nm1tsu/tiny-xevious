@@ -27,5 +27,8 @@ void loop()
         return;
     solvalou->move();
     solvalou->draw();
+    ab.setCursor(0,0);
+    ab.println(solvalou->x);
+    ab.println(solvalou->y);
     ab.display();
 }

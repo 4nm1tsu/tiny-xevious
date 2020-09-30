@@ -8,19 +8,19 @@ void Solvalou::draw()
 
 void Solvalou::move()
 {
-    if (this->ab->pressed(LEFT_BUTTON))
+    if (this->ab->pressed(LEFT_BUTTON) && this->x > (OBJ_SIZE / 2))
     {
         this->x -= this->velocity;
     }
-    if (this->ab->pressed(RIGHT_BUTTON))
+    if (this->ab->pressed(RIGHT_BUTTON) && this->x < (WIDTH - (OBJ_SIZE / 2) - 1))
     {
         this->x += this->velocity;
     }
-    if (this->ab->pressed(UP_BUTTON))
+    if (this->ab->pressed(UP_BUTTON) && this->y > (OBJ_SIZE / 2))
     {
         this->y -= this->velocity;
     }
-    if (this->ab->pressed(DOWN_BUTTON))
+    if (this->ab->pressed(DOWN_BUTTON) && this->y < (HEIGHT - (OBJ_SIZE / 2) - 1))
     {
         this->y += this->velocity;
     }
